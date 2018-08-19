@@ -72,8 +72,8 @@ public class DayAdapter extends ArrayAdapter<String> {
                 maxt1 = df.format(maxt);
             }
         }
-        minTempFoDay.setText(mint1);
-        maxTempFoDay.setText(maxt1);
+        minTempFoDay.setText("Min : " + mint1 + " °C");
+        maxTempFoDay.setText("Max : " + maxt1 + " °C");
         WeatherAdapter weatherAdapter = new WeatherAdapter(context,R.layout.weather_holder,dayWeather);
         weatherHolderListView.setAdapter(weatherAdapter);
 

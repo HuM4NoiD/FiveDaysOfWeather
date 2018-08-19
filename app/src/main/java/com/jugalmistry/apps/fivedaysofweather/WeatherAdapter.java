@@ -36,7 +36,7 @@ public class WeatherAdapter extends ArrayAdapter<WeatherData> {
         Log.d(TAG, "getView: entered");
         WeatherData weatherData = block.get(position);
         TextView temp = (TextView) convertView.findViewById(R.id.temperature);
-        temp.setText(weatherData.getTemp());
+        temp.setText(weatherData.getTemp() + "°C");
         TextView shortDesc = (TextView) convertView.findViewById(R.id.descrip);
         shortDesc.setText(weatherData.getShortDesc());
         return convertView;
