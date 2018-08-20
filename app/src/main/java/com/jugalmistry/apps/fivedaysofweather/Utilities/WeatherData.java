@@ -1,8 +1,8 @@
-package com.jugalmistry.apps.fivedaysofweather;
+package com.jugalmistry.apps.fivedaysofweather.Utilities;
 
 import java.io.Serializable;
 
-public class WeatherData implements Serializable{
+public class WeatherData{
     private String temp, minTemp, maxTemp, humidity, description, iconID, shortDesc, date;
 
     public String getTemp() {

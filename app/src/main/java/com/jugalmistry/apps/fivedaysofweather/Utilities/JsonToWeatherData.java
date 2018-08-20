@@ -1,4 +1,4 @@
-package com.jugalmistry.apps.fivedaysofweather;
+package com.jugalmistry.apps.fivedaysofweather.Utilities;
 
 import android.util.Log;
 
@@ -49,8 +49,9 @@ public class JsonToWeatherData {
 
     public ArrayList<WeatherData> extractByDate(ArrayList<WeatherData> fullList,String date){
         ArrayList<WeatherData> dayweatherList = new ArrayList<WeatherData>();
+        Log.d(TAG, "extractByDate: inserted date line is : " + date);
         for( WeatherData weather : fullList ){
-            if( ( weather.getDate().substring(0,9) ).equals(date) ){
+            if( ( weather.getDate().substring(0,10) ).equals(date) ){
                 dayweatherList.add(weather);
             }
         }

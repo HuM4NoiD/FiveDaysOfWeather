@@ -1,24 +1,20 @@
-package com.jugalmistry.apps.fivedaysofweather;
+package com.jugalmistry.apps.fivedaysofweather.Activities;
 
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.jugalmistry.apps.fivedaysofweather.AdaptersAndHolders.DayAdapter;
+import com.jugalmistry.apps.fivedaysofweather.Utilities.JsonToWeatherData;
+import com.jugalmistry.apps.fivedaysofweather.R;
+import com.jugalmistry.apps.fivedaysofweather.AdaptersAndHolders.WeatherAdapter;
+import com.jugalmistry.apps.fivedaysofweather.Utilities.WeatherData;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,8 +25,6 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -142,10 +136,10 @@ public class MainActivity extends AppCompatActivity {
                 days.add(date3);
                 days.add(date4);
                 days.add(date5);
-//                DayAdapter day = new DayAdapter(MainActivity.this,R.layout.layout_day_card,days,weatherDataArrayList);
-//                listView.setAdapter(day);
-                weatherAdapter = new WeatherAdapter(MainActivity.this,R.layout.weather_holder,weatherDataArrayList);
-                listView.setAdapter(weatherAdapter);
+                DayAdapter day = new DayAdapter(MainActivity.this,R.layout.layout_day_card,days,weatherDataArrayList);
+                listView.setAdapter(day);
+//                weatherAdapter = new WeatherAdapter(MainActivity.this,R.layout.weather_holder,weatherDataArrayList);
+//                listView.setAdapter(weatherAdapter);
             } else {
                 Log.d(TAG, "onPostExecute: no json recieved, city is Wrong");
                 Toast toast = Toast.makeText(MainActivity.this,"Please provide a valid city!",Toast.LENGTH_LONG);
